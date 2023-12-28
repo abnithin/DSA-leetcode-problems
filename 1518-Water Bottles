@@ -1,0 +1,17 @@
+class Solution {
+    public int numWaterBottles(int numBottles, int numExchange) {
+        int p=0,x;
+        int count=numBottles;
+        p=count;
+        while(numExchange<=count)
+        {
+
+            x=count/numExchange;
+            p+=x;
+            x+=count%numExchange;
+            count=x;
+        
+        }
+        return p;
+    }
+}
