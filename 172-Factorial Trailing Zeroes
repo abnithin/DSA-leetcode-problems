@@ -1,0 +1,11 @@
+class Solution {
+    public int trailingZeroes(int n) {
+        int i,j,a=n,sum=0;
+        while(a/5>=1)
+        {
+            sum+=a/5;
+            a=a/5;
+        }
+        return sum;
+    }
+}
