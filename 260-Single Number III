@@ -1,0 +1,40 @@
+class Solution {
+    public int[] singleNumber(int[] nums) {
+        int i,j,n=0,count=0,left=0,right=0;
+        int arr[]=new int[32];
+        int aarr[]=new int[2];
+        for(i=0;i<nums.length;i++)
+        {
+            n^=nums[i];
+        }
+        for(i=0;i<32;i++)
+        {
+            if((n&(1<<i))!=0)
+            {
+                arr[i]++;
+            }
+        }
+        for(i=0;i<32;i++)
+        {
+            if(arr[i]==1)
+            {
+                break;
+            }
+            count++;
+        }
+        for(i=0;i<nums.length;i++)
+        {
+            if((nums[i]&(1<<count))==0)
+            {
+                left^=nums[i];
+            }
+            else
+            {
+                right^=nums[i];
+            }
+        }
+        aarr[0]=left;
+        aarr[1]=right;
+        return aarr;
+    }
+}
