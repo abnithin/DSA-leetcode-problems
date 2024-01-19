@@ -1,0 +1,25 @@
+class Solution {
+    public boolean isSubsequence(String s, String t) {
+        int i,j,n,k,c=0,count=0;
+        char[] arr=s.toCharArray();
+        char[] ar=t.toCharArray();
+        for(i=0;i<s.length();i++)
+        {
+            for(j=c;j<t.length();j++)
+            {
+                if(ar[j]==arr[i])
+                {
+                    count++;
+                    ar[j]='0';
+                    c=j++;
+                    break;
+                }
+            }
+        }
+        if(count==s.length())
+        {
+            return true;
+        }
+        return false;
+    }
+}
