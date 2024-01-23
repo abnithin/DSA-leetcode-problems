@@ -1,0 +1,16 @@
+class Solution {
+    public int arrangeCoins(int n) {
+        int i=1,j=1;
+        while(i==1)
+        {
+            n=n-j;
+            j++;
+            if(n<j || n==0)
+            {
+                break;
+            }
+
+        }
+        return j-1;
+    }
+}
