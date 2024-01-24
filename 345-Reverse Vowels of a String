@@ -1,0 +1,47 @@
+class Solution {
+    public String reverseVowels(String s) {
+        String str="";
+        String st="";
+        String stri="aeiouAEIOU";
+        int count=0;
+        for(int i=0;i<s.length();i++)
+        {
+            //Character.toLowerCase(s.charAt(i));
+            count=0;
+           for(int j=0;j<10;j++)
+           {
+               if(s.charAt(i)==stri.charAt(j))
+               {
+                   count++;
+                   break;
+               }
+           }
+           if(count==1)
+            {
+                str+=s.charAt(i);
+            }
+        }
+        int x=str.length()-1;
+        for(int i=0;i<s.length();i++)
+        {
+            count=0;
+           for(int j=0;j<10;j++)
+           {
+               if(s.charAt(i)==stri.charAt(j))
+               {
+                   count++;
+                   break;
+               }
+           }
+           if(count==1) 
+            {
+                st+=str.charAt(x--);
+            }
+            else
+            {
+                st+=s.charAt(i);
+            }
+        }
+        return st;
+    }
+}
