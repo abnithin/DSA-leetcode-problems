@@ -1,0 +1,27 @@
+class Solution {
+    public int[] intersect(int[] nums1, int[] nums2) {
+        int i,j,count=0,m;
+        List<Integer> li =new ArrayList<>();
+        for(i=0;i<nums1.length;i++)
+        {
+            for(j=0;j<nums2.length;j++)
+            {
+                if(nums1[i]==nums2[j])
+                {
+                    li.add(nums1[i]);
+                    count++;
+                    nums2[j]=-1;
+                    break;
+                }
+            }
+        }
+        int arr[]=new int[count];
+        for(i=0;i<count;i++)
+        {
+            arr[i]=li.get(i);
+        }
+        return arr;
+        
+        
+    }
+}
