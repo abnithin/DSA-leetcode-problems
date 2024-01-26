@@ -1,0 +1,48 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+    int i,j,n,p,l=0;
+    scanf("%d",&n);
+    int arr[n];
+    for(i=0;i<n;i++)
+    {
+        scanf("%d",&arr[i]);
+    }
+    scanf("%d",&p);
+    
+    for(i=0;i<n-1;i++)
+    {
+        int arr2[n];
+        int c=1;
+        for(j=i+1;j<n;j++)
+        {
+            if(arr[i]==arr[j] && arr[j]!=-1)
+            {
+                arr2[0]=i;
+                arr2[c++]=j;
+                arr[j]=-1;
+            }
+        }
+        if(c>1){
+        int count=0;
+        for(int k=0;k<c-1;k++)
+        {
+            count+=arr2[k];
+        }
+        count=arr2[c-1]-count;
+        if(count<=p && count>0)
+        {
+            l++;
+            printf("%d ",arr[i]);
+        }
+        }
+    }
+    if(l==0)
+    {
+        printf("null");
+    }
+    return 0;
+}
