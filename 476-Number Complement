@@ -1,0 +1,13 @@
+class Solution {
+    public int findComplement(int num) {
+        int count = 0,p=num;
+        while(num > 0){
+            num = num/2;
+            count++;
+        }
+        int tmp = (int) (Math.pow(2,count)-1);
+        return tmp^p;
+    }
+
+    
+}
