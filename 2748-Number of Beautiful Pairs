@@ -1,0 +1,35 @@
+class Solution {
+    public int countBeautifulPairs(int[] nums) {
+        int i,j,count=0,gcd;
+        for(i=0;i<nums.length-1;i++)
+        {
+            for(j=i+1;j<nums.length;j++)
+            {
+                String str=String.valueOf(nums[i]);
+                Character a=str.charAt(0);
+                int b=nums[j]%10;
+                int c=a-'0';
+                if(b>c)
+                {
+                     gcd=gcd1(c,b);
+                }
+                else{
+                     gcd=gcd1(b,c);
+                }
+                if(gcd==1)
+                {
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+    public int gcd1(int a, int b) {
+        if(a==0)
+        {
+            return b;
+        }
+        return gcd1(b%a,a);
+    }
+        
+}
