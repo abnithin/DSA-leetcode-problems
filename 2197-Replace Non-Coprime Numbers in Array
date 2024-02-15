@@ -1,0 +1,48 @@
+class Solution {
+    public List<Integer> replaceNonCoprimes(int[] nums) {
+        int i,j,c;
+        List<Integer> li=new ArrayList<Integer>();
+        for(i=0;i<nums.length;i++)
+        {
+            li.add(nums[i]);
+            while(li.size()>1){
+                
+                int a=gcd(li.get(li.size()-1),li.get(li.size()-2));
+                int p=(li.get(li.size()-1)/a)*(li.get(li.size()-2)/a)*a;
+            if(a==1)
+            {
+                break;
+            }
+                li.remove(li.size()-1);
+                li.remove(li.size()-1);
+                li.add(p);
+
+            }
+        }
+        return li;
+    }
+    // public int lcm(int a,int b)
+    // {
+    //     int c,d,count=0;
+    //     if(a>b)
+    //     {
+    //         c=b;
+    //         d=a;
+    //     }
+    //     else
+    //     {
+    //         c=a;
+    //         d=b;
+    //     }
+    //     int l=gcd(c,d);
+    //     return l;  
+    // }
+    public int gcd(int a,int b)
+    {
+        if(a==0)
+        {
+            return b;
+        }
+        return gcd(b%a,a);
+    }
+}
